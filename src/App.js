@@ -7,6 +7,7 @@ import {
 import Register from './pages/registration';
 import LoginPage from './pages/login'; 
 import React, { useState } from 'react';
+import Initialize from './components/button';
 
 function App() {
 
@@ -54,6 +55,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         {/* <Route path="/login" element={<LoginPage />} />  */}
       </Routes>
+      <Initialize/>
     </div>
   );
 }
