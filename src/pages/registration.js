@@ -21,7 +21,18 @@ export class Register extends React.Component
   handleSubmit(event) {
     const{uname, pass, confpass, fname, lname, email} = this.state
     event.preventDefault();
+    if(uname === '' || pass === '' || confpass === '' || fname === '' || lname === '' || email === '')
+    {
+      alert('One or more data fields are empty')
+    }
+    else if(pass !== confpass)
+    {
+      alert('Password must be entered twice to confirm')
+    }
+    else
+    {
     alert('Username: ' + uname + '\nName: ' + fname + ' ' + lname + '\nEmail: ' + email)
+    }
   }
 
   render() {
