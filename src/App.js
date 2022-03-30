@@ -7,8 +7,9 @@ import {
 
 import Register from './pages/registration';
 import LoginPage from './pages/login';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Initialize from './components/button';
+import axios from 'axios';
 
 function App() {
   const [user, setUser] = useState({ name: "", email: "" });
@@ -18,26 +19,19 @@ function App() {
   const Login = details => {
     console.log(details);
 
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: details
-    };
+    axios.post('http://localhost:5000/login/', { email: details.email, password: details.password, name: details.name })
+      .then(data => {
+        console.log(data)
+        setLogin(true); // JSON data parsed by `data.json()` call
+      });
 
-    fetch('http://127.0.0.1:5000/login/', requestOptions)
-      .then(response => response.json())
-      .then(data => setLogin(true));
-
-    if (loginStatus) {
-      console.log("Logged in");
       setUser({
         name: details.name,
         email: details.email
+
       });
-    } else {
-      console.log("Details do not match!");
-      setError("Details do not match!");
-    }
+    
+      
   }
 
   const Logout = () => {
@@ -45,12 +39,21 @@ function App() {
     setLogin(false);
   }
 
-    const navigate = useNavigate();
- 
-    const NavigateRegisterHandler = () => {
-        navigate('/register');
-    } 
+  const navigate = useNavigate();
 
+  const NavigateRegisterHandler = () => {
+    navigate('/register');
+  }
+
+  useEffect(() => {
+    if (loginStatus) {
+      console.log("Logged in");
+      
+    } else {
+      console.log("Details do not match!");
+      setError("Details do not match!");
+    }
+  },[loginStatus]);
 
 
   return (
@@ -63,7 +66,7 @@ function App() {
       ) : (
         <div>
           <LoginPage Login={Login} error={error} />
-            <button onClick={NavigateRegisterHandler}>Register</button>
+          <button onClick={NavigateRegisterHandler}>Register</button>
         </div>
       )}
 

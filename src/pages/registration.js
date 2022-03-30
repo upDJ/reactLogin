@@ -1,6 +1,7 @@
+import axios from "axios";
 import React from "react";
 
-export class Register extends React.Component
+export default class Register extends React.Component
 {
   constructor(props)
   {
@@ -9,6 +10,13 @@ export class Register extends React.Component
     email:''};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  register()
+  {
+   
+    axios.post('http://127.0.0.1:5000/register/', {uname: this.state.uname, pass: this.state.pass, fname: this.state.fname, lname: this.state.lname, email: this.state.email})
+      .then(response => console.log(response))
   }
 
   handleChange(event) 
@@ -32,6 +40,7 @@ export class Register extends React.Component
     else
     {
     alert('Username: ' + uname + '\nName: ' + fname + ' ' + lname + '\nEmail: ' + email)
+    this.register()
     }
   }
 
