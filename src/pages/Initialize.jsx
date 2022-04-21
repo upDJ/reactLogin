@@ -1,7 +1,6 @@
 import React from 'react';
 
 
-
 class Initialize extends React.Component {
     constructor() {
         super();

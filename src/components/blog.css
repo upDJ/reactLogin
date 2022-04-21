@@ -1,0 +1,77 @@
+.createBlog {
+    width: 1000px;
+    background-color: rgba(22, 109, 172, 0.199);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    border-radius: 5px;
+}
+
+.readBlog {
+    width: 500px;
+    background-color: rgba(22, 109, 172, 0.199);
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 1vmin);
+    color: white;
+    border-radius: 5px;
+}
+
+.readBlogTextBox {
+    width: 350px;
+}
+
+
+.blogTextBox {
+    width: 700px;
+}
+
+.tags-input-container {
+    border-radius: 100px;
+    padding: 1px;
+    width: min(80vw, 700px);
+    margin-top: 1em;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .5em;
+    border-radius: 25px;
+
+}
+
+.tag-item {
+    background-color: rgb(218, 216, 216);
+    display: inline-block;
+    padding: .5em .75em;
+    border-radius: 18px;
+
+}
+
+.tag-item .close {
+    height: 20px;
+    width: 20px;
+    background-color: rgb(48, 48, 48);
+    color: #fff;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: .5em;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.tags-input {
+    border-radius: 5px;
+    flex-grow: 1;
+    padding: .5em 0;
+    border: none;
+    outline: none;
+}
