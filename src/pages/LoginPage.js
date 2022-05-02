@@ -5,7 +5,6 @@ function LoginPage({ Login, error }) {
 
   const submitHandler = e => {
     e.preventDefault();
-
     Login(details);
   }
 

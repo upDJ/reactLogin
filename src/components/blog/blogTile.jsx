@@ -4,13 +4,12 @@ import axios from 'axios';
 import './blog.css';
 
 
-function BlogTile({ blog, index }) {
+function BlogTile({ header, blog, index }) {
     const [rating, setRating] = useState('positive');
     const [comment, setComment] = useState('');
-
+    
     const title = { "fontSize": 30, "fontWeight": "bold" }
-
-
+    console.log(header, blog)
     const handleSubmit = e => {
         e.preventDefault();
         console.log({ rating: rating, comment: comment, user_id: localStorage.getItem("user_id"), blog_id: index + 1  });
@@ -41,15 +40,15 @@ function BlogTile({ blog, index }) {
                 <Form>
                     <Form.Group className="mb-3" controlId="SubjectInput">
                         <Form.Label style={title}>Subject</Form.Label>
-                        <div>{'\n' + blog[0]}</div>
+                        <div>{'\n' + blog.subject}</div>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="DescriptionInput" >
                         <Form.Label style={title}>Description</Form.Label>
-                        <div>{blog[1]}</div>
+                        <div>{blog.description}</div>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="TagsInput">
                         <Form.Label style={title}>Tags</Form.Label>
-                        <div>{blog[2]}</div>
+                        <div>{blog.tags}</div>
                     </Form.Group>
                 </Form>
 
